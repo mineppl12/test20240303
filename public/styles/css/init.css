@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Noto+Sans+KR:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+::-webkit-scrollbar{
+    width: 0;
+}
+    
+:root{
+    --background-color: #f0f0f0;
+    --jshsus-color-light: #ade8e3;
+    --jshsus-color-light2: #69c9c0;
+    --jshsus-color-dark: #35948a;
+    --dark-color: #092635;
+}
+
+html, body{
+    width: 100%;
+    height: 100vh;
+}
+
+#main{
+    width: 100%;
+    height: 100%;
+    background: var(--background-color);
+}

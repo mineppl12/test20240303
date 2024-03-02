@@ -1,0 +1,414 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+html,body,#main{
+    overflow: hidden;
+}
+
+.pages{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    font-family: "Nanum Gothic", sans-serif;
+
+    &#page0{
+        .sections{
+            width: 100%;
+            height: 100%;
+            position: relative;
+
+            &#page0_section0{
+                transition: all 1s;
+                margin-top: 0;
+
+                #search{
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    z-index: 0;
+                    background: transparent;
+                    transition: all .5s;
+
+                    #input_wrap{
+                        width: 450px;
+                        height: 150px;
+                        position: absolute;
+                        top: 50%; left: calc(10vw + 50px);
+                        transform: translate(0, -50%);
+                        overflow: hidden;
+
+                        .input{
+                            width: 100%;
+                            height: 110px;
+                            color: #444;
+                            background: transparent;
+                            position: absolute;
+                            bottom: 0;
+                            border: none;
+                            outline: none;
+                            padding-left: 10px;
+                            font-size: 90px;
+                            font-weight: 100;
+                            line-height: 110px;
+                            font-family: "Nanum Gothic", sans-serif;
+                            z-index: 1;
+                            border-bottom: 1px solid #333;
+    
+                            &::selection{
+                                background: var(--jshsus-color-light);
+                                height: 50px;
+                            }
+                        }
+    
+                        .placeholder{
+                            color: #555;
+                            position: absolute;
+                            top: 80%; left: 10px;
+                            transform: translate(0, -50%);
+                            font-size: 25px;
+                            font-weight: 700;
+                            z-index: 0;
+                            transition: all .2s;
+                        }
+    
+                        .input:focus + .placeholder, .input:not(:placeholder-shown) + .placeholder{
+                            color: var(--jshsus-color-dark);
+                            top: 25px;
+                            font-size: 20px;
+                        }
+                    }
+
+                    &:has(#search_inp:not(:placeholder-shown):focus){
+                        background: rgba(#F7ECDE, .8);
+                        z-index: 2;
+                    }
+
+                    #searchResult{
+                        width: 500px;
+                        height: 500px;
+                        background: transparent;
+                        border-radius: 16px;
+                        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                        position: absolute;
+                        top: 50%; right: calc(10vw + 50px);
+                        transform: translate(0, -50%);
+                        overflow: hidden;
+                        z-index: 0;
+
+                        #searchResult_wrap{
+                            width: 500px;
+                            height: 500px;
+                            position: absolute;
+                            background: rgba(#f0f0f0, .5);
+                            backdrop-filter: blur(10px);
+                            
+                            #list_wrap{
+                                $listHeight: 80px;
+                                $listCount: 5;
+
+                                width: 100%;
+                                height: $listCount * $listHeight;
+                                margin-top: 50px;
+                                z-index: 1;
+    
+                                li{
+                                    width: 100%;
+                                    height: $listHeight;
+                                    cursor: pointer;
+                                    list-style: none;
+                                    display: flex;
+                                    align-items: center;
+                                    display: none;
+                                        
+                                    .text{
+                                        width: 100px;
+                                        height: 30px;
+                                        position: absolute;
+                                        font-size: 20px;
+                                        font-family: "Nanum Gothic", sans-serif;
+                                        line-height: 30px;
+                                        text-align: center;
+
+                                        &.name {
+                                            width: 60px;
+                                            left: 30px;
+                                        }
+                                        &.stuid{
+                                            width: 80px;
+                                            left: 100px; font-size: 15px;
+                                        }
+                                        &.score{
+                                            right: 30px;
+                                            .good {color: green;}
+                                            .bad {color: crimson;}
+                                        }
+                                    }
+    
+                                    &:hover { background: rgba(#fff, .5); }
+                                }
+                            }
+
+                            #searchResult_page_wrap{
+                                width: 200px;
+                                height: 50px;
+                                position: absolute;
+                                left: 50%;
+                                transform: translate(-50%, 0);
+                                display: none;
+
+                                h1{
+                                    width: 100px;
+                                    height: 100%;
+                                    position: absolute;
+                                    left: 50%;
+                                    transform: translate(-50%, 0);
+                                    font-size: 20px;
+                                    font-weight: 100;
+                                    line-height: 50px;
+                                    text-align: center;
+                                }
+
+                                button{
+                                    width: 40px;
+                                    height: 40px;
+                                    position: absolute;
+                                    top: 5px;
+                                    cursor: pointer;
+                                    border: none;
+                                    outline: none;
+
+                                    &:hover {background: #e4e4e4;}
+
+                                    span{
+                                        width: 100%;
+                                        height: 100%;
+                                        line-height: 40px;
+                                        text-align: center;
+                                        font-size: 40px;
+                                        font-weight: 100;
+                                    }
+
+                                    &#searchResult_page_btn_left { left: 0; }
+                                    &#searchResult_page_btn_right { right: 0; }
+                                }
+                            }
+                        }
+                    }
+                }
+    
+                &.page0_section0_hide1 { margin-top: -100vh; }
+                &.page0_section0_hide2 { margin-top: -200vh; }
+            }
+
+            &#page0_section1{
+                #profile{
+                    width: 100%;
+                    height: calc(100vh - 150px);
+                    max-height: 1261.5px;
+                    position: absolute;
+                    bottom: 0; left: 50%;
+                    transform: translate(-50%, 0);
+                    overflow: hidden;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    &::before{
+                        content: '';
+                        width: 550px;
+                        height: 100%;
+                        background: #62a9d4;
+                        position: absolute;
+                        bottom: -100%;
+                        transition: all 1s 0.7s;
+                    }
+
+                    #profile_img{
+                        $shadowColor: rgba(#27374D, .2);
+
+                        width: calc((100vh - 150px) / 4 * 3 * 0.9);
+                        height: 90%;
+                        max-width: 852px;
+                        background: transparent;
+                        position: absolute;
+                        bottom: -100%; left: 50%;
+                        transform-origin: center;
+                        transform: translate(-50%);
+                        filter: drop-shadow(5px 5px 20px $shadowColor) drop-shadow(-5px 5px 20px $shadowColor);
+                        transition: all 1.5s 0.5s;
+
+                        &.loading{
+                            opacity: 0;
+                            bottom: 0;
+                        }
+                    }
+
+                    #profile_info{
+                        color: #27374D;
+                        position: relative;
+                        top: 100%; left: -550px;
+                        font-family: "Poppins", "Nanum Gothic", sans-serif;
+                        font-weight: 600;
+                        font-size: 90px;
+                        line-height: 80px;
+                        transition: all 1.5s;
+                    }
+                }
+
+                &.profile_show #profile{
+                    &::before { transition: all 1s 1s; bottom: 0; }
+                    #profile_img { transition: all 1.5s 1.2s; bottom: 0; }
+                    #profile_info { top: 0; }
+                }
+
+                #option{
+                    width: 150px;
+                    height: 350px;
+                    position: absolute;
+                    top: 50%; right: calc(10vw + 50px);
+                    transform: translate(0, -50%);
+                    display: flex;
+                    flex-wrap: nowrap;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    .option_btn{
+                        width: 150px;
+                        height: 120px;
+                        cursor: pointer;
+
+                        .option_icon, .option_icon span{
+                            width: 100%;
+                            height: 90px;
+                            color: #555;
+                            line-height: 90px;
+                            font-size: 75px;
+                            text-align: center;
+                        }
+
+                        .option_text{
+                            height: 30px;
+                            color: #555;
+                            font-size: 17px;
+                            line-height: 30px;
+                            text-align: center;
+                            font-family: "Nanum Gothic", sans-serif;
+                        }
+
+                        &:hover{
+                            .option_text {text-decoration: underline;}
+                        }
+                    }
+                }
+
+                @keyframes page0_section1{
+                    from {top: 100%;}
+                    to {top: 0;}
+                }
+
+                &.page0_section1_show { animation: page0_section1 1s forwards; }
+                &.page0_section1_hide { animation: page0_section1 1s forwards reverse; }
+            }
+
+            &#page0_section2{
+                #swiper{
+                    $listWidth: 100px;
+                    $listHeight: 50px;
+                    $listPad: 50px;
+                    $listCount: 3;
+
+                    width: $listWidth;
+                    height: ($listHeight + $listPad) * $listCount - $listPad;
+                    position: absolute;
+                    top: 50%; right: calc(10vw + 20px);
+                    transform: translate(0, -50%);
+                    font-family: 'Nanum Gothic';
+
+                    .swiper_list{
+                        width: 100%;
+                        height: $listHeight;
+                        color: #555;
+                        margin-bottom: $listPad;
+                        list-style: none;
+                        font-size: 20px;
+                        line-height: $listHeight;
+                        font-weight: bold;
+                        text-align: right;
+                        cursor: pointer;
+
+                        &:hover {text-decoration: underline;}
+
+                        &.watching{
+                            color: var(--dark-color);
+                            font-size: 30px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &#page1{
+        display: none;
+        #page1_wrap{
+            width: 70%;
+            position: absolute;
+            top: 50%; left: 10%;
+            transform: translate(0, -50%);
+
+            .section_title{
+                color: #444;
+                font-size: 30px;
+                font-weight: 600;
+                line-height: 40px;
+                padding-left: 30px;
+                padding-top: 30px;
+            }
+
+            div{
+                width: 100%;
+
+                h1{
+                    color: #555;
+                    padding-top: 50px;
+                    padding-left: 20px;
+                    font-size: 15px;
+                    line-height: 20px;
+                }
+            }
+        }
+    }
+}
+
+/*#navbar{
+    $listWidth: 80px;
+    $listHeight: 50px;
+    $listPad: 50px;
+    $listCount: 2;
+
+    width: $listWidth;
+    height: ($listHeight + $listPad) * $listCount - $listPad;
+    position: absolute;
+    top: 50%; right: 10vw;
+    transform: translate(0, -50%);
+    font-family: 'Nanum Gothic';
+
+    .navbar_list{
+        width: 100%;
+        height: $listHeight;
+        color: #555;
+        margin-bottom: $listPad;
+        list-style: none;
+        font-size: $listHeight * 0.4;
+        line-height: $listHeight;
+        font-weight: bold;
+        text-align: right;
+        cursor: pointer;
+
+        &:hover {text-decoration: underline;}
+
+        &.watching{
+            color: var(--dark-color);
+            text-decoration: underline;
+        }
+    }
+}*/
